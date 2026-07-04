@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>個別相談・撮影のご依頼｜恋愛分析【男のモテラボ】</title>
+<meta name="description" content="マッチングアプリ専門の写真撮影を中心に、ファッションチェック・プロフィール添削をオプションで追加できる個別相談。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="result-body">
+
+<header class="result-header">
+  <div class="container">
+    <a href="index.html" class="logo-r">男の<span>モテラボ</span></a>
+    <a href="line-tokuten.html" class="link-r">LINE特典に戻る</a>
+  </div>
+</header>
+
+<main class="result-main">
+  <div class="container narrow">
+
+    <section class="result-hero">
+      <span class="result-eyebrow">個別相談・撮影のご依頼</span>
+      <h1 class="result-type" style="font-size:1.6rem;">写真1枚で、返信率が変わるから。</h1>
+      <p class="result-catch">マッチングアプリ専門の撮影を軸に、オプションで診断まで一気に依頼できるプラン。</p>
+    </section>
+
+    <section class="result-card">
+      <h2 class="result-h2">対応メニュー</h2>
+      <ul class="points-list">
+        <li><b>プロフィール写真撮影（基本プラン）</b> — マッチングアプリ・婚活写真に特化した撮影</li>
+        <li><b>［オプション］ファッションチェック</b> — 撮影当日の服装・小物のアドバイス</li>
+        <li><b>［オプション］マッチングアプリのプロフィール添削</b> — プロフィール文・写真構成のチェック</li>
+      </ul>
+    </section>
+
+    <section class="result-card">
+      <h2 class="result-h2">ご依頼フォーム</h2>
+      <p class="result-lead">フォーム送信後、担当（Kusari）よりLINEまたはメールで日程・料金のご案内をします。決済はこの時点ではまだ発生しません。</p>
+
+      <form id="consultForm" novalidate>
+
+        <div class="form-field">
+          <label class="form-label" for="fName">お名前<span class="req">必須</span></label>
+          <input class="form-input" type="text" id="fName" name="name" required>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="fContactType">ご希望の連絡方法<span class="req">必須</span></label>
+          <select class="form-input" id="fContactType" name="contactType" required>
+            <option value="">選択してください</option>
+            <option value="line">LINE</option>
+            <option value="email">メール</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="fContact">連絡先（LINE ID または メールアドレス）<span class="req">必須</span></label>
+          <input class="form-input" type="text" id="fContact" name="contact" required>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">撮影プラン<span class="req">必須</span></label>
+          <div class="form-radio-group">
+            <label class="form-radio"><input type="radio" name="plan" value="basic" required> プロフィール写真撮影（基本プラン）</label>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">オプション追加（複数選択可）</label>
+          <div class="form-checkbox-group">
+            <label class="form-check"><input type="checkbox" name="options" value="fashion"> ファッションチェックを追加する</label>
+            <label class="form-check"><input type="checkbox" name="options" value="profile"> プロフィール添削を追加する</label>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="fDate1">ご希望日程（第1希望）<span class="req">必須</span></label>
+          <input class="form-input" type="text" id="fDate1" name="date1" placeholder="例：7月中旬の土日" required>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="fDate2">ご希望日程（第2希望）</label>
+          <input class="form-input" type="text" id="fDate2" name="date2" placeholder="任意">
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="fNote">備考</label>
+          <textarea class="form-textarea" id="fNote" name="note" rows="4" placeholder="気になる点・相談したいことなど"></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary big" id="submitBtn">この内容で相談を申し込む →</button>
+        <p id="formError" class="form-error" style="display:none;"></p>
+      </form>
+
+      <div id="formSuccess" class="form-success" style="display:none;">
+        <h3>送信しました。</h3>
+        <p>内容を確認の上、LINEまたはメールでご連絡します。少々お待ちください。</p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="result-footer">
+  <div class="container">
+    <div>© 恋愛分析【男のモテラボ】</div>
+    <div class="foot-links">
+      <a href="index.html">トップに戻る</a>
+      <a href="line-tokuten.html">LINE特典</a>
+    </div>
+  </div>
+</footer>
+
+<script src="consultation.js"></script>
+</body>
+</html>

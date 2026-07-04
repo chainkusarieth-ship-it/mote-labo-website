@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>無料タイプ診断｜恋愛分析【男のモテラボ】</title>
+<meta name="description" content="全8問・約60秒。あなたの非モテタイプをAIレンが辛口診断。選ぶだけでOK。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="diag-body">
+
+<header class="site-header" style="background:transparent; border:none;">
+  <div class="container">
+    <a href="index.html" class="logo">男の<span>モテラボ</span></a>
+    <nav class="nav-links">
+      <a href="index.html">トップに戻る</a>
+    </nav>
+  </div>
+</header>
+
+<main class="diag-main">
+  <div class="container narrow">
+
+    <!-- 進捗 -->
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-label">
+        <span>非モテタイプ診断</span>
+        <span>Q<b id="qCurrent">1</b> / <span id="qTotal">8</span></span>
+      </div>
+    </div>
+
+    <!-- レンのナビ -->
+    <div class="ren-nav">
+      <svg class="mini-avatar" viewBox="0 0 120 120" aria-label="AIレン">
+        <circle cx="60" cy="60" r="58" fill="#241a35" stroke="#ff6fa5" stroke-width="2"/>
+        <path d="M20 55 Q60 10 100 55 Q100 90 60 100 Q20 90 20 55Z" fill="#ff6fa5"/>
+        <circle cx="60" cy="65" r="30" fill="#ffe3ee"/>
+        <circle cx="49" cy="65" r="4.5" fill="#37e8b0"/>
+        <circle cx="71" cy="65" r="4.5" fill="#37e8b0"/>
+      </svg>
+      <div class="bubble" id="renNav">正直に選んで。カッコつけた回答は、全部ノイズになるだけ。</div>
+    </div>
+
+    <!-- 質問(JSで描画) -->
+    <div class="q-card" id="qCard">
+      <div class="q-num" id="qNum">QUESTION 1</div>
+      <div class="q-text" id="qText"></div>
+      <div class="choice-list" id="choiceList"></div>
+    </div>
+
+    <!-- 操作 -->
+    <div class="diag-controls">
+      <button class="btn-ghost" id="backBtn" style="visibility:hidden;">← 戻る</button>
+      <div class="spacer"></div>
+    </div>
+
+    <!-- 完了 -->
+    <div class="diag-finish" id="finishScreen" style="display:none;">
+      <svg class="mini-avatar" viewBox="0 0 120 120" aria-label="AIレン">
+        <circle cx="60" cy="60" r="58" fill="#241a35" stroke="#ff6fa5" stroke-width="2"/>
+        <path d="M20 55 Q60 10 100 55 Q100 90 60 100 Q20 90 20 55Z" fill="#ff6fa5"/>
+        <circle cx="60" cy="65" r="30" fill="#ffe3ee"/>
+        <circle cx="49" cy="65" r="4.5" fill="#37e8b0"/>
+        <circle cx="71" cy="65" r="4.5" fill="#37e8b0"/>
+      </svg>
+      <div class="spinner"></div>
+      <h2>はい、全部見えた。今から言語化するね。</h2>
+      <p>8問の回答パターンから、非モテタイプと直すべき急所を解析中…</p>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>© 恋愛分析【男のモテラボ】</div>
+    <div class="foot-links"><a href="index.html">トップ</a></div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

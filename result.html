@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>診断結果｜恋愛分析【男のモテラボ】</title>
+<meta name="description" content="AIレンによる非モテタイプ診断の結果ページ。あなたのタイプ・特徴・改善のための次の一手を提示します。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="result-body">
+
+<header class="result-header">
+  <div class="container">
+    <a href="index.html" class="logo-r">男の<span>モテラボ</span></a>
+    <a href="diagnosis.html" class="link-r">もう一度診断する</a>
+  </div>
+</header>
+
+<main class="result-main">
+  <div class="container narrow">
+
+    <section class="result-hero">
+      <span class="result-eyebrow">あなたの診断結果</span>
+      <h1 class="result-type" id="typeName">――</h1>
+      <p class="result-catch" id="typeCatch"></p>
+    </section>
+
+    <section class="result-card">
+      <p class="result-lead" id="typeLead"></p>
+      <div class="ren-quote">
+        <span class="ren-quote-label">AIレン</span>
+        <p id="renComment"></p>
+      </div>
+    </section>
+
+    <section class="result-card">
+      <h2 class="result-h2">あなたに出ている、3つのサイン</h2>
+      <ul class="points-list" id="pointsList"></ul>
+    </section>
+
+    <section class="branch-grid">
+
+      <div class="branch-card">
+        <span class="branch-tag">自分のペースで動きたい人へ</span>
+        <h3>今のタイプに合う、動き方から変える</h3>
+        <p class="branch-desc">アプリ選びだけでも、事故る確率は変わる。あなたのタイプに合わせて、レンが1つだけ選んだ。</p>
+
+        <div class="app-reco">
+          <div class="app-reco-name" id="appName">―</div>
+          <p class="app-reco-reason" id="appReason"></p>
+          <a href="#" id="appLink" class="btn-outline" data-url="" target="_blank" rel="noopener sponsored">このアプリを見てみる →</a>
+        </div>
+
+        <p class="pr-disclosure">
+          <span class="pr-badge">PR</span>
+          本ページのリンクには広告（アフィリエイトプログラム）が含まれます。
+        </p>
+      </div>
+
+      <div class="branch-card branch-card-accent">
+        <span class="branch-tag branch-tag-accent">本気で変えたい人へ</span>
+        <h3>タイプ別の改善ロードマップ、LINEで受け取る</h3>
+        <p class="branch-desc">診断だけで終わらせたくない人向け。公式LINE登録で、あなたのタイプに合わせた詳細な改善ロードマップを特典として配布中。写真撮影・プロフィール添削などの個別相談も、LINEから案内している。</p>
+        <a href="line-tokuten.html" class="btn-primary">LINE登録して特典を受け取る →</a>
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<footer class="result-footer">
+  <div class="container">
+    <div>© 恋愛分析【男のモテラボ】</div>
+    <div class="foot-links">
+      <a href="index.html">トップに戻る</a>
+      <a href="diagnosis.html">もう一度診断する</a>
+    </div>
+  </div>
+</footer>
+
+<script src="result.js"></script>
+</body>
+</html>
