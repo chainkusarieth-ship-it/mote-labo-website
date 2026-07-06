@@ -10,7 +10,7 @@
    （Cloudflareアカウント用意後にWorkerを実装し、ここに反映する）
    ============================================ */
 
-const FORM_ENDPOINT = ""; // 例: "https://mote-labo-form.<account>.workers.dev/consultation"
+const FORM_ENDPOINT = "https://mote-labo-discord-notify.chainkusari-eth.workers.dev";
 
 const form = document.getElementById("consultForm");
 const errorEl = document.getElementById("formError");
