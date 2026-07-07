@@ -36,22 +36,26 @@ form.addEventListener("submit", function (e) {
   const contactType = data.get("contactType");
   const contact = (data.get("contact") || "").toString().trim();
   const plan = data.get("plan");
+  const area = (data.get("area") || "").toString().trim();
   const date1 = (data.get("date1") || "").toString().trim();
 
-  if (!name || !contactType || !contact || !plan || !date1) {
+  if (!name || !contactType || !contact || !area || !plan || !date1) {
     showError("必須項目が入力されていません。");
     return;
   }
 
+  /* エリアは備考の先頭に含めて送る（既存WorkerのままでDiscordに表示されるようにするため） */
+  const noteBody = (data.get("note") || "").toString().trim();
   const payload = {
     name: name,
     contactType: contactType,
     contact: contact,
     plan: plan,
+    area: area,
     options: data.getAll("options"),
     date1: date1,
     date2: (data.get("date2") || "").toString().trim(),
-    note: (data.get("note") || "").toString().trim(),
+    note: ["【お住まいのエリア】" + area, noteBody].filter(Boolean).join("\n"),
     submittedAt: new Date().toISOString()
   };
 

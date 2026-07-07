@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>個別相談・撮影のご依頼｜恋愛分析【男のモテラボ】AIレン</title>
-<meta name="description" content="マッチングアプリ専門の写真撮影を中心に、ファッションチェック・プロフィール添削をオプションで追加できる個別相談。">
+<meta name="description" content="マッチングアプリ専門の写真撮影（関東圏・対面）と、全国対応のオンライン個別相談。ファッションチェック・プロフィール添削もオプションで追加可能。">
 <link rel="stylesheet" href="style.css?v=20260707f">
 </head>
 <body class="result-body">
@@ -22,16 +22,18 @@
     <section class="result-hero">
       <span class="result-eyebrow">個別相談・撮影のご依頼</span>
       <h1 class="result-type" style="font-size:1.6rem;">写真1枚で、返信率が変わるから。</h1>
-      <p class="result-catch">マッチングアプリ専門の撮影を軸に、オプションで診断まで一気に依頼できるプラン。</p>
+      <p class="result-catch">マッチングアプリ専門の撮影（関東圏・対面）と、全国どこからでも受けられるオンライン個別相談。</p>
     </section>
 
     <section class="result-card">
       <h2 class="result-h2">対応メニュー</h2>
       <ul class="points-list">
-        <li><b>プロフィール写真撮影（基本プラン）</b> — マッチングアプリ・婚活写真に特化した撮影</li>
+        <li><b>プロフィール写真撮影（基本プラン／対面・関東圏）</b> — マッチングアプリ・婚活写真に特化した撮影</li>
+        <li><b>オンライン個別相談（全国対応）</b> — ビデオ通話で今の写真を診断し、場所・光・構図・服装まで指定した「あなた専用の撮影指示書」をお渡し</li>
         <li><b>［オプション］ファッションチェック</b> — 撮影当日の服装・小物のアドバイス</li>
         <li><b>［オプション］マッチングアプリのプロフィール添削</b> — プロフィール文・写真構成のチェック</li>
       </ul>
+      <p class="result-lead">対面での撮影は関東圏（東京・千葉・埼玉・神奈川など）で対応しています。関東圏外の方は、オンライン個別相談をご利用ください。</p>
     </section>
 
     <section class="result-card">
@@ -60,9 +62,19 @@
         </div>
 
         <div class="form-field">
-          <label class="form-label">撮影プラン<span class="req">必須</span></label>
+          <label class="form-label" for="fArea">お住まいのエリア<span class="req">必須</span></label>
+          <select class="form-input" id="fArea" name="area" required>
+            <option value="">選択してください</option>
+            <option value="関東圏（東京・千葉・埼玉・神奈川・茨城・栃木・群馬）">関東圏（東京・千葉・埼玉・神奈川・茨城・栃木・群馬）</option>
+            <option value="関東圏以外">関東圏以外</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">ご希望プラン<span class="req">必須</span></label>
           <div class="form-radio-group">
-            <label class="form-radio"><input type="radio" name="plan" value="basic" required> プロフィール写真撮影（基本プラン）</label>
+            <label class="form-radio"><input type="radio" name="plan" value="basic" required> プロフィール写真撮影（対面・関東圏）</label>
+            <label class="form-radio"><input type="radio" name="plan" value="オンライン個別相談（ビデオ通話・全国対応）"> オンライン個別相談（ビデオ通話・全国対応）</label>
           </div>
         </div>
 
