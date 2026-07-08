@@ -81,9 +81,11 @@ button{ font-family:inherit; cursor:pointer; border:none; background:none; }
 }
 .nav-links a:hover{ background:rgba(255,111,165,.35); color:#fff; }
 @media (max-width:560px){
-  .nav-links{ gap:6px; }
-  .nav-links a{ font-size:.72rem; padding:5px 10px; }
-  .logo{ font-size:1rem; }
+  .site-header{ padding:10px 0; }
+  .site-header .container{ flex-wrap:wrap; row-gap:8px; padding:0 12px; }
+  .logo{ width:100%; font-size:1rem; }
+  .nav-links{ gap:5px; width:100%; max-width:100%; justify-content:flex-start; }
+  .nav-links a{ font-size:.7rem; padding:5px 8px; }
 }
 
 /* ---------- ボタン ---------- */
