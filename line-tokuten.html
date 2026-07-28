@@ -54,6 +54,16 @@
     font-weight:900; margin-bottom:6px;
   }
   .howto-step span{ display:block; font-size:.8rem; color:#5a6478; line-height:1.7; }
+  /* 診断済みの人だけに出るタイプ別の案内（JSで表示切替） */
+  .type-hint{
+    display:none;
+    background:#fff5f9; border:1px solid rgba(255,111,165,.42);
+    border-radius:14px; padding:16px 18px; margin-bottom:24px;
+    font-size:.88rem; line-height:1.8; color:#3d4557;
+  }
+  .type-hint.is-on{ display:block; }
+  .type-hint b{ color:var(--c-trust-navy); font-weight:900; }
+  .type-hint .kw{ color:#c4327a; font-weight:900; }
   @media (max-width:600px){
     .howto-step{ flex-basis:100%; }
     .tokuten-item{ padding:14px 15px; }
@@ -77,6 +87,11 @@
       <h1 class="result-type" style="font-size:1.6rem;">診断だけで終わらせないための、続き。</h1>
       <p class="result-catch">公式LINEに登録すると、あなたの診断タイプに合わせた特典を配布してるけど。</p>
     </section>
+
+    <div class="type-hint" id="typeHint">
+      あなたの診断結果は <b id="typeHintName">――</b> でした。<br>
+      友だち追加のあと <span class="kw" id="typeHintKw">――</span> と送れば、あなた専用の改善ロードマップがその場で届きます。
+    </div>
 
     <section class="result-card">
       <h2 class="result-h2">登録すると受け取れるもの（全部無料）</h2>
@@ -189,6 +204,31 @@
   var lineBtn = document.getElementById("lineAddBtn");
   var lineUrl = lineBtn.getAttribute("data-url");
   if (lineUrl) { lineBtn.setAttribute("href", lineUrl); }
+
+  /* 診断済みの人にだけ、タイプ名と送るキーワードを出す。
+     ?type=xxx（result.htmlのリンクが付与）→ localStorage の順で判定する。
+     タイプ定義の正は result.js。ここは表示用の最小マップ（増減時は両方直すこと） */
+  (function () {
+    var TYPES = {
+      gungun:    { name: "ぐいぐい空回り型",     keyword: "空回り" },
+      bibiri:    { name: "安全運転ビビり型",     keyword: "ビビり" },
+      jibun:     { name: "自分軸ズレ型",         keyword: "ズレ" },
+      kanchigai: { name: "ポジティブ勘違い型",   keyword: "勘違い" }
+    };
+
+    var type = new URLSearchParams(window.location.search).get("type");
+    if (!TYPES[type]) {
+      try {
+        var saved = JSON.parse(localStorage.getItem("moteLabo_diag") || "null");
+        if (saved && TYPES[saved.type]) { type = saved.type; }
+      } catch (e) { /* noop */ }
+    }
+    if (!TYPES[type]) { return; }  /* 未診断の人には出さない */
+
+    document.getElementById("typeHintName").textContent = TYPES[type].name;
+    document.getElementById("typeHintKw").textContent = "「" + TYPES[type].keyword + "」";
+    document.getElementById("typeHint").classList.add("is-on");
+  })();
 </script>
 
 </body>

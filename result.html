@@ -6,6 +6,17 @@
 <title>診断結果｜恋愛分析【男のモテラボ】AIレン</title>
 <meta name="description" content="AIレンによる非モテタイプ診断の結果ページ。あなたのタイプ・特徴・改善のための次の一手を提示します。">
 <link rel="stylesheet" href="style.css?v=20260708a">
+<style>
+  /* このページ専用（LINEキーワード案内）。style.cssには影響しない */
+  .kw-hint{
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,111,165,.4);
+    border-radius:12px; padding:12px 14px; margin-bottom:20px;
+    font-size:.84rem; line-height:1.75; color:var(--c-muted2);
+  }
+  .kw-hint b{ color:var(--c-cream); font-weight:900; }
+  .kw-hint #lineKeyword{ color:var(--c-pink-light); }
+</style>
 </head>
 <body class="result-body">
 
@@ -61,7 +72,8 @@
         <span class="branch-tag branch-tag-accent">本気で変えたい人へ</span>
         <h3>タイプ別の改善ロードマップ、LINEで受け取る</h3>
         <p class="branch-desc">診断だけで終わらせたくない人向け。公式LINE登録で、あなたのタイプに合わせた詳細な改善ロードマップを特典として配布中。写真撮影・プロフィール添削などの個別相談も、LINEから案内している。</p>
-        <a href="line-tokuten.html" class="btn-primary">LINE登録して特典を受け取る →</a>
+        <p class="kw-hint">登録したら <b>「<span id="lineKeyword">――</span>」</b> と送ってください。<br>あなた専用のロードマップがその場で届きます。</p>
+        <a href="line-tokuten.html" id="lineTokutenLink" class="btn-primary">LINE登録して特典を受け取る →</a>
       </div>
 
     </section>
@@ -81,6 +93,6 @@
   </div>
 </footer>
 
-<script src="result.js?v=20260707a"></script>
+<script src="result.js?v=20260727a"></script>
 </body>
 </html>

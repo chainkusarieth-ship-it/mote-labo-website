@@ -8,6 +8,7 @@
 const RESULTS = {
   gungun: {
     name: "ぐいぐい空回り型",
+    keyword: "空回り",   /* LINEキーワード応答の完全一致ワード */
     catch: "好意は本物。届き方が、ほぼ事故だけど。",
     lead: "行動力は本物です。ただ、追う速度が「相手が好きになる速度」を毎回追い越しています。足りないのは勇気じゃなくて、余白です。",
     points: [
@@ -20,6 +21,7 @@ const RESULTS = {
   },
   bibiri: {
     name: "安全運転ビビり型",
+    keyword: "ビビり",   /* LINEキーワード応答の完全一致ワード */
     catch: "振られたことがないのは、告白したことがないからだけど。",
     lead: "それ、慎重じゃなくてただの停止。あなたが待っている「絶対に大丈夫なタイミング」は、過去に一度も来ていません。この先も来ません。",
     points: [
@@ -32,6 +34,7 @@ const RESULTS = {
   },
   jibun: {
     name: "自分軸ズレ型",
+    keyword: "ズレ",   /* LINEキーワード応答の完全一致ワード */
     catch: "悪気なく、相手をずっと相槌係にしてるだけ。",
     lead: "デート後の「楽しかった」、一度でも疑ったことある？ あなたが喋って、相手が聞いて、それをあなたが「盛り上がった」と記録しているだけです。",
     points: [
@@ -44,6 +47,7 @@ const RESULTS = {
   },
   kanchigai: {
     name: "ポジティブ勘違い型",
+    keyword: "勘違い",   /* LINEキーワード応答の完全一致ワード */
     catch: "その手応え、9割はあなたの脳内補正だけど。",
     lead: "都合のいい解釈で、脈ありが量産されています。ただしその脈は、相手の心臓じゃなくて、あなたの願望が打っています。",
     points: [
@@ -94,6 +98,15 @@ function render() {
   const appLink = document.getElementById("appLink");
   const url = appLink.getAttribute("data-url");
   if (url) { appLink.setAttribute("href", url); }
+
+  /* LINE特典カード：タイプ別のキーワードを表示し、特典ページにもtypeを引き継ぐ */
+  const kwEl = document.getElementById("lineKeyword");
+  if (kwEl && data.keyword) { kwEl.textContent = data.keyword; }
+
+  const tokutenLink = document.getElementById("lineTokutenLink");
+  if (tokutenLink) {
+    tokutenLink.setAttribute("href", "line-tokuten.html?type=" + encodeURIComponent(type));
+  }
 }
 
 render();
