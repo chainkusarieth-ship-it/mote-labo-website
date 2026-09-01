@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# 特典PDF（/tokuten/）はクロールを許可したうえで、
+# _headers の X-Robots-Tag: noindex で検索結果から除外している。
+# ここで Disallow にするとクロールできず noindex が読まれないため、あえて許可している。
+
+Sitemap: https://airenmote.com/sitemap.xml
