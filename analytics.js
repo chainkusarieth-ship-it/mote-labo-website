@@ -21,7 +21,7 @@
 (function () {
   "use strict";
 
-  var MEASUREMENT_ID = ""; // 例: "G-XXXXXXXXXX"
+  var MEASUREMENT_ID = "G-3KE97CZR22"; // 男のモテラボ サイト（GA4）
 
   /* ---------- GA4 の読み込み ---------- */
   if (MEASUREMENT_ID) {
