@@ -95,9 +95,9 @@ function render() {
   document.getElementById("appName").textContent = data.app.name;
   document.getElementById("appReason").textContent = data.app.reason;
 
-  const appLink = document.getElementById("appLink");
-  const url = appLink.getAttribute("data-url");
-  if (url) { appLink.setAttribute("href", url); }
+  /* アプリ推奨ボタンの遷移先は apps.html 固定（HTML側に直接記述）。
+     マッチングアプリのアフィリエイト案件は一般開放されていないため、
+     かつてここで差し込んでいた data-url は廃止した。 */
 
   /* LINE特典カード：タイプ別のキーワードを表示し、特典ページにもtypeを引き継ぐ */
   const kwEl = document.getElementById("lineKeyword");
