@@ -63,7 +63,7 @@
       return { event: "tokuten_pdf_click",
                label: (href.split("/").pop() || "pdf") };
     }
-    if (/^#step/.test(href)) {
+    if (/^#(step\d|bangai)$/.test(href)) {
       return { event: "toc_click", label: href.replace("#", "") };
     }
     for (var page in INTERNAL) {
