@@ -318,6 +318,26 @@ button{ font-family:inherit; cursor:pointer; border:none; background:none; }
 .cta-band h2{ font-size:1.7rem; margin-bottom:12px; }
 .cta-band p{ color:var(--c-muted2); margin-bottom:30px; font-size:.95rem; }
 
+/* ---------- 共通LINE CTA（記事ページ用・複数箇所に設置する） ---------- */
+.line-cta{
+  background:linear-gradient(135deg,#2b2140,#3b2a52);
+  border:1px solid rgba(255,111,165,.45);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-soft);
+  padding:28px 24px; margin-bottom:24px; text-align:center;
+}
+.line-cta .line-cta-tag{
+  display:inline-block; font-size:.72rem; font-weight:900; letter-spacing:.06em;
+  color:var(--c-pink-light); margin-bottom:8px;
+}
+.line-cta h3{ font-size:1.08rem; font-weight:900; color:var(--c-cream); margin-bottom:10px; line-height:1.65; }
+.line-cta p{ font-size:.88rem; color:var(--c-muted2); margin-bottom:20px; }
+.line-cta .btn-primary{ display:inline-block; }
+.line-cta .line-cta-note{ font-size:.76rem; color:var(--c-muted); margin:12px 0 0; }
+.line-cta.slim{ padding:22px 24px; }
+.line-cta.on-dark{ background:rgba(255,255,255,.05); border-color:rgba(255,111,165,.5); }
+.line-cta.slim h3{ font-size:.98rem; margin-bottom:16px; }
+
 /* ---------- フッター ---------- */
 .site-footer{
   background:#0f0a17; color:#8a7f9c;
