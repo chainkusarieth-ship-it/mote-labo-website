@@ -3,9 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>タイプ別・マッチングアプリの選び方｜恋愛分析【男のモテラボ】AIレン</title>
-<meta name="description" content="非モテ4タイプ診断に基づく、あなたのタイプに合うマッチングアプリの選び方。ランキングではなく、つまずき方から逆算するアプリ選び。">
+<title>マッチングアプリの選び方｜今のあなたがやるべき1手【男のモテラボ】AIレン</title>
+<meta name="description" content="人気ランキングではなく、アプリ経験と交際経験の2問から、今のあなたがやるべき1手を決めるページ。ペアーズ・with・Omiai・タップル・東カレデートの位置づけも解説します。">
 <link rel="stylesheet" href="style.css?v=20260708a">
+<style>
+  /* このページ専用（2問分岐・アプリ比較）。style.css には影響しない */
+  .q-card{ background:var(--c-trust-card); border:1px solid var(--c-trust-line); border-radius:var(--radius); padding:26px 24px; margin-bottom:20px; box-shadow:var(--shadow-soft); }
+  .q-block{ margin-bottom:20px; }
+  .q-block:last-of-type{ margin-bottom:0; }
+  .q-label{ font-size:.95rem; font-weight:900; color:var(--c-trust-navy); margin-bottom:10px; }
+  .q-choices{ display:flex; gap:10px; flex-wrap:wrap; }
+  .q-btn{
+    border:2px solid var(--c-trust-line); background:#fff; color:#3d4557;
+    font-weight:800; font-size:.95rem; padding:12px 26px; border-radius:999px;
+    transition:.15s;
+  }
+  .q-btn:hover{ border-color:var(--c-trust-accent); color:var(--c-trust-accent); }
+  .q-btn[aria-pressed="true"]{ background:var(--c-trust-accent); border-color:var(--c-trust-accent); color:#fff; }
+  .q-hint{ font-size:.84rem; color:#6b7488; margin-top:18px; }
+  .q-reset{ font-size:.8rem; font-weight:800; color:var(--c-trust-accent); text-decoration:underline; margin-top:14px; display:none; }
+  .q-reset.on{ display:inline-block; }
+
+  .box{ display:none; }
+  .box.on{ display:block; }
+  .box-tag{
+    display:inline-block; font-size:.72rem; font-weight:900; letter-spacing:.04em;
+    color:#fff; background:var(--c-trust-navy); border-radius:999px; padding:5px 14px; margin-bottom:14px;
+  }
+  .do-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:18px 0 4px; }
+  .do-item{ border-radius:14px; padding:16px 18px; font-size:.9rem; }
+  .do-yes{ background:rgba(47,191,133,.08); border:1px solid rgba(47,191,133,.35); }
+  .do-no{ background:rgba(224,90,90,.06); border:1px solid rgba(224,90,90,.3); }
+  .do-item h4{ font-size:.8rem; font-weight:900; margin-bottom:6px; letter-spacing:.03em; }
+  .do-yes h4{ color:#1c8b60; }
+  .do-no h4{ color:#c04a4a; }
+  .do-item p{ color:#3d4557; }
+  @media(max-width:640px){ .do-grid{ grid-template-columns:1fr; } }
+
+  .exit{
+    margin-top:20px; border-left:4px solid var(--c-trust-accent);
+    background:#fdf3f7; border-radius:0 12px 12px 0; padding:16px 18px;
+  }
+  .exit h4{ font-size:.82rem; font-weight:900; color:var(--c-trust-accent); margin-bottom:6px; letter-spacing:.03em; }
+  .exit p{ font-size:.92rem; color:#3d4557; margin-bottom:12px; }
+  .exit .btn-primary, .exit .btn-outline{ display:inline-block; font-size:.88rem; padding:12px 22px; margin:0 8px 8px 0; }
+
+  .tbl-wrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; margin-bottom:22px; }
+  table.cmp{ border-collapse:collapse; width:100%; min-width:520px; font-size:.86rem; }
+  table.cmp th, table.cmp td{ border:1px solid var(--c-trust-line); padding:10px 12px; text-align:left; vertical-align:top; }
+  table.cmp th{ background:#eef1f6; color:var(--c-trust-navy); font-weight:900; white-space:nowrap; }
+  table.cmp td b{ color:var(--c-trust-navy); }
+  table.cmp td:first-child{ white-space:nowrap; }
+
+  .app-block{ border-top:1px solid var(--c-trust-line); padding-top:20px; margin-top:20px; }
+  .app-block:first-of-type{ border-top:none; padding-top:0; margin-top:0; }
+  .app-block p{ font-size:.94rem; color:#3d4557; margin-bottom:10px; }
+  .app-block p.app-name{ font-size:1.12rem; font-weight:900; color:var(--c-trust-navy); margin-bottom:2px; }
+  .app-block p.app-role{ font-size:.82rem; font-weight:900; color:var(--c-trust-accent); margin-bottom:12px; letter-spacing:.03em; }
+
+  details.fold{ background:var(--c-trust-card); border:1px solid var(--c-trust-line); border-radius:var(--radius); box-shadow:var(--shadow-soft); margin-bottom:20px; }
+  details.fold > summary{
+    cursor:pointer; list-style:none; padding:22px 24px;
+    font-size:1rem; font-weight:900; color:var(--c-trust-navy);
+  }
+  details.fold > summary::-webkit-details-marker{ display:none; }
+  details.fold > summary::after{ content:"＋ 開く"; float:right; font-size:.8rem; color:var(--c-trust-accent); }
+  details.fold[open] > summary::after{ content:"− 閉じる"; }
+  details.fold > summary small{ display:block; font-size:.8rem; font-weight:700; color:#6b7488; margin-top:4px; }
+  .fold-body{ padding:0 24px 24px; }
+  .fold-body h3{ font-size:.98rem; color:var(--c-trust-navy); margin:20px 0 8px; }
+  .fold-body p{ font-size:.92rem; color:#3d4557; }
+  .no-ad{ font-size:.82rem; color:#6b7488; }
+</style>
 </head>
 <body class="result-body">
 
@@ -20,46 +89,230 @@
   <div class="container narrow">
 
     <section class="result-hero">
-      <span class="result-eyebrow">タイプ別・マッチングアプリの選び方</span>
-      <h1 class="result-type" style="font-size:1.6rem;">「人気のアプリ」より「あなたに合うアプリ」。</h1>
-      <p class="result-catch">アプリ選びで大事なのはランキングではなく、あなたのつまずき方との相性です。4タイプ診断に基づいて選び方を解説します。</p>
-      <p style="font-size:.85rem; opacity:.95; font-weight:700;">※本ページはプロモーション（広告）を含みます</p>
+      <span class="result-eyebrow">マッチングアプリの選び方</span>
+      <h1 class="result-type" style="font-size:1.6rem;">「人気のアプリ」より、<br>あなたが今やるべき1手。</h1>
+      <p class="result-catch">情報を足すページではありません。あなたが今やらなくていいことを、はっきりさせます。</p>
     </section>
 
     <section class="result-card">
-      <h2 class="result-h2">なぜ「人気ランキング」で選ぶと失敗するのか</h2>
-      <p class="result-lead">会員数が多いアプリが、あなたに合うアプリとは限りません。ライバルの男性も多く、埋もれやすくなるからです。大事なのは、<b>自分のつまずき方（タイプ）と、アプリの設計の相性</b>。ここを合わせるだけで、同じ顔・同じプロフィールでも結果が変わります。</p>
-      <p class="result-lead">まだ診断していない人は、先に自分のタイプを特定してください。<a href="diagnosis.html">無料60秒診断はこちら</a>。</p>
+      <p class="result-lead">マッチングアプリの攻略情報は、ネット上にいくらでもあります。そして、書かれていることはだいたい正しいです。写真が大事なのも、プロフィールの書き方も、メッセージの型も、大きく間違っている情報はほとんどありません。</p>
+      <p class="result-lead">問題は、<b>多すぎること</b>です。</p>
+      <p class="result-lead">全部読んでも、そのうちどれを自分がやるべきかは分かりません。そして全部やろうとした人から順に、手が止まります。</p>
+      <p class="result-lead" style="margin-bottom:0;">だからこのページでは、<b>順番だけ決めます。</b>まず2つだけ答えてください。</p>
     </section>
 
-    <section class="result-card">
-      <h2 class="result-h2">ぐいぐい空回り型に合うアプリの条件</h2>
-      <p>行動力が空回りするタイプは、<b>会話のテンポが穏やかに設計されたアプリ</b>が向いています。スワイプで大量にマッチして大量に即レスする環境は、あなたの事故率を上げるだけです。価値観や共通点からじっくり始まる設計のアプリで、1人ずつ丁寧に進めてください。</p>
-      <p style="opacity:.6; border:1px dashed rgba(255,255,255,.3); border-radius:10px; padding:12px; text-align:center;">おすすめアプリ枠（提携確定後に掲載）</p>
+    <!-- ===== 2問分岐 ===== -->
+    <section class="q-card" id="qCard">
+      <div class="q-block">
+        <p class="q-label">Q1．マッチングアプリを使ったことがありますか？</p>
+        <div class="q-choices">
+          <button type="button" class="q-btn" data-q="app" data-v="no" aria-pressed="false">使ったことがない</button>
+          <button type="button" class="q-btn" data-q="app" data-v="yes" aria-pressed="false">使ったことがある</button>
+        </div>
+      </div>
+      <div class="q-block">
+        <p class="q-label">Q2．交際経験はありますか？</p>
+        <div class="q-choices">
+          <button type="button" class="q-btn" data-q="love" data-v="no" aria-pressed="false">ない</button>
+          <button type="button" class="q-btn" data-q="love" data-v="yes" aria-pressed="false">ある</button>
+        </div>
+      </div>
+      <p class="q-hint" id="qHint">2つ答えると、あなたに当てはまる1つだけが表示されます。<b>残りの3つは読まなくて大丈夫です。</b></p>
+      <a href="#" class="q-reset" id="qReset">答えを選び直す</a>
     </section>
 
-    <section class="result-card">
-      <h2 class="result-h2">安全運転ビビり型に合うアプリの条件</h2>
-      <p>動き出しが重いタイプは、<b>「いいね」以外の軽い接点（足あと・コミュニティ機能など）があるアプリ</b>が向いています。いきなり告白レベルの勇気を要求されない、小さい一歩を積める設計が正解。損失回避が強いあなたには、メッセージを送る前に共通点が見える仕組みが効きます。</p>
-      <p style="opacity:.6; border:1px dashed rgba(255,255,255,.3); border-radius:10px; padding:12px; text-align:center;">おすすめアプリ枠（提携確定後に掲載）</p>
+    <!-- 箱① 未経験 × 交際なし -->
+    <section class="result-card box" id="box-no-no">
+      <span class="box-tag">アプリ未経験 × 交際経験なし</span>
+      <h2 class="result-h2">最初の目的は、「出会うこと」ではありません</h2>
+      <p class="result-lead">まず、いきなり彼女を作ろうとしないでください。</p>
+      <p class="result-lead">最初の1〜2週間は、成果を出す期間ではなく、<b>調べる期間</b>です。ここを間違えると、反応がないことを失敗だと感じて、そこで終わってしまいます。</p>
+      <ul class="points-list">
+        <li>女性が、どんな雰囲気でプロフィールを作っているか</li>
+        <li>実際にメッセージを送ったとき、どんな会話になるか</li>
+        <li>今の自分に、どのくらい反応が返ってくるか</li>
+      </ul>
+      <p class="result-lead" style="margin-top:16px;"><b>3つ目が一番大事です。</b>これがあなたの現在地です。ここが分からないまま対策記事を読んでも、どれが自分に必要かを判断できません。</p>
+      <div class="do-grid">
+        <div class="do-item do-yes">
+          <h4>やること</h4>
+          <p>登録する。写真を1枚だけまともにする。いいねを送ってみる。<b>それだけです。</b></p>
+        </div>
+        <div class="do-item do-no">
+          <h4>やらなくていいこと</h4>
+          <p>メッセージの型、デートの誘い方、プロフィール文の作り込み。全部あとで効いてきますが、<b>反応が返ってこない段階では使う場面が来ません。</b></p>
+        </div>
+      </div>
+      <p class="result-lead" style="margin-top:18px;">最初の1本は<b>ペアーズ</b>で構いません。母数が一番大きいので、「自分にどのくらい反応が返るか」を測るには一番向いています。</p>
+      <div class="exit">
+        <h4>次の1手</h4>
+        <p>写真だけは最初から効きます。公式LINEの「女性目線チェックリスト」で、登録する前に1枚目を確認してください。</p>
+        <a href="line-tokuten.html" class="btn-primary">LINEでチェックリストを受け取る →</a>
+      </div>
     </section>
 
-    <section class="result-card">
-      <h2 class="result-h2">自分軸ズレ型に合うアプリの条件</h2>
-      <p>会話が自分の話に寄るタイプは、<b>相手のプロフィール項目・質問が豊富なアプリ</b>が向いています。「相手に聞くこと」がアプリ側に用意されていれば、会話が自然に相手7:自分3の配分に近づきます。写真だけで判断が進むスワイプ特化型は、あなたの強みを消します。</p>
-      <p style="opacity:.6; border:1px dashed rgba(255,255,255,.3); border-radius:10px; padding:12px; text-align:center;">おすすめアプリ枠（提携確定後に掲載）</p>
+    <!-- 箱② 未経験 × 交際あり -->
+    <section class="result-card box" id="box-no-yes">
+      <span class="box-tag">アプリ未経験 × 交際経験あり</span>
+      <h2 class="result-h2">あなたは、ゼロからのスタートではありません</h2>
+      <p class="result-lead">交際経験があるということは、女性への対応にある程度慣れているということです。<b>その資産を最初から使ってください。</b></p>
+      <p class="result-lead">最初に狙うのは、<b>過去にうまくいった相手像に近いタイプ</b>の女性です。理由は単純で、会話のテンポも距離の詰め方も、すでに体が知っているからです。</p>
+      <p class="result-lead">ただし、そこで止まらないでください。慣れた相手だけを追い続けると、選択肢が狭いままになります。</p>
+      <p class="result-lead">慣れてきたら、<b>あえて違うタイプの女性ともメッセージとデートを重ねてください。</b>そこで初めて「自分はどういう女性が得意で、どこが苦手か」が見えてきます。ここが分かると、以降のアプリ選びも写真の方向性も、判断が一気に楽になります。</p>
+      <div class="do-grid">
+        <div class="do-item do-yes">
+          <h4>やること</h4>
+          <p>まず勝てる相手から。慣れたら幅を広げて、自分の得意・不得意を見極める。</p>
+        </div>
+        <div class="do-item do-no">
+          <h4>やらなくていいこと</h4>
+          <p>初心者向けの基礎講座。<b>あなたはその段階を過ぎています。</b></p>
+        </div>
+      </div>
+      <p class="result-lead" style="margin-top:18px;">アプリは<b>ペアーズ</b>か<b>with</b>。幅を測るなら母数の大きいペアーズ、20代前半〜中盤を狙うならwithが向いています。</p>
+      <div class="exit">
+        <h4>次の1手</h4>
+        <p>プロフィール文は、慣れている人ほど手を抜きがちなところです。「プロフィール文NG辞典」で、書き方の型だけ先に押さえておいてください。</p>
+        <a href="line-tokuten.html" class="btn-primary">LINEでNG辞典を受け取る →</a>
+      </div>
     </section>
 
-    <section class="result-card">
-      <h2 class="result-h2">ポジティブ勘違い型に合うアプリの条件</h2>
-      <p>脈の読み違いが起きるタイプは、<b>真剣度の高い層が集まるアプリ</b>が向いています。婚活寄りの層は社交辞令が少なく、脈のあり・なしがはっきり出るので、あなたの解釈違いが起きにくい環境です。ライトな出会い目的の場は、曖昧なサインが多くて時間を溶かします。</p>
-      <p style="opacity:.6; border:1px dashed rgba(255,255,255,.3); border-radius:10px; padding:12px; text-align:center;">おすすめアプリ枠（提携確定後に掲載）</p>
+    <!-- 箱③ 経験あり × 交際なし -->
+    <section class="result-card box" id="box-yes-no">
+      <span class="box-tag">アプリ経験あり × 交際経験なし</span>
+      <h2 class="result-h2">交際経験がないことは、まったく問題になりません</h2>
+      <p class="result-lead">先に断っておきます。アプリ上で、交際経験の有無は相手に伝わりません。相手が見ているのは、写真とプロフィールと会話だけです。<b>気にするだけ損です。</b></p>
+      <p class="result-lead">そのうえで、この段階の人が一番多く抱えているのは、<b>そもそもマッチしない</b>という状態です。</p>
+      <h2 class="result-h2" style="margin-top:26px;">マッチしない原因は、1つではありません</h2>
+      <ul class="points-list">
+        <li><b>写真</b> — 1枚目だけで判断されている</li>
+        <li><b>プロフィール文</b> — 読まれる前に閉じられている</li>
+        <li><b>いいねの送り方</b> — 数と、送る相手の選び方</li>
+        <li><b>アプリと自分の層が合っていない</b> — そもそも土俵が違う</li>
+      </ul>
+      <p class="result-lead" style="margin-top:16px;">厄介なのは、<b>どれが原因かは人によって違う</b>ということです。写真の記事を読めば写真が原因に思えるし、プロフィールの記事を読めばプロフィールに思える。<b>自分では切り分けられません。</b></p>
+      <div class="do-grid">
+        <div class="do-item do-yes">
+          <h4>まずできること</h4>
+          <p>写真から確認する。1枚目で判断されるので影響が一番大きく、<b>ここだけは自分でも直せます。</b></p>
+        </div>
+        <div class="do-item do-no">
+          <h4>それでも変わらなかったら</h4>
+          <p>原因の切り分けが必要です。ここから先は、<b>あなたの実際の画面と数字を見ないと答えが出せません。</b></p>
+        </div>
+      </div>
+      <p class="result-lead" style="margin-top:18px;">「土俵が違う」だけのケースもあります。20代後半以降で<b>タップル</b>だけを使っているなら、それは実力ではなく場所の問題です。<b>ペアーズ</b>か<b>Omiai</b>を試してから判断してください。</p>
+      <div class="exit">
+        <h4>次の1手</h4>
+        <p>まず「女性目線チェックリスト」で写真を確認してください。それでも反応が変わらない場合は、オンライン個別相談で一緒に原因を切り分けます。</p>
+        <a href="line-tokuten.html" class="btn-primary">LINEでチェックリストを受け取る →</a>
+        <a href="consultation.html" class="btn-outline">原因の切り分けを相談する →</a>
+      </div>
     </section>
 
+    <!-- 箱④ 経験あり × 交際あり -->
+    <section class="result-card box" id="box-yes-yes">
+      <span class="box-tag">アプリ経験あり × 交際経験あり</span>
+      <h2 class="result-h2">次に超えるのは、「2回目」です</h2>
+      <p class="result-lead">この段階の人は、女性にかなり慣れています。マッチもするし、会うところまでは行く。</p>
+      <p class="result-lead">そのうえで一番多いのが、<b>会えるけれど2回目がない</b>という状態です。</p>
+      <p class="result-lead">これは初心者のつまずきとは質が違います。写真もプロフィールも機能しているということですから、詰まっているのは<b>会ってからの部分</b>です。</p>
+      <h2 class="result-h2" style="margin-top:26px;">ここが、一番自力で直しにくい領域です</h2>
+      <ul class="points-list">
+        <li><b>相手からフィードバックが返ってこない。</b>断られる理由は、まず言われません</li>
+        <li><b>自分の苦手な部分は、自分では見えない。</b>見えていたら、とっくに直っています</li>
+      </ul>
+      <p class="result-lead" style="margin-top:16px;">ただ、この段階まで来ている人は、<b>自分の弱点がうっすら分かっていることが多い</b>です。「たぶん自分は◯◯が弱い」という感覚。次にやるのは、その感覚が当たっているかを確かめて、直せる形にすることです。</p>
+      <p class="result-lead">アプリを増やすなら、ここで初めて<b>東カレデート</b>が選択肢に入ります。求められる水準は上がりますが、今のあなたなら挑戦する価値があります。</p>
+      <div class="exit">
+        <h4>次の1手</h4>
+        <p>ここは記事では進めません。オンライン個別相談で、直近のデートを1件ずつ振り返って、どこで温度が下がったかを特定します。</p>
+        <a href="consultation.html" class="btn-primary">デートの振り返りを相談する →</a>
+      </div>
+    </section>
+
+    <!-- ===== アプリ5本の位置づけ ===== -->
     <section class="result-card">
-      <h2 class="result-h2">どのタイプにも共通する、始める前の1つ</h2>
-      <p class="result-lead">アプリ選びより先に結果を左右するのが写真です。女性があなたの写真を見る時間は0.5秒。<a href="line-tokuten.html">公式LINEで配布中の「女性目線チェックリスト」</a>で、登録前にセルフチェックしてください。</p>
-      <p class="result-lead">出会いの場を全体から見直したい人は、<a href="deai-guide.html">出会いの場・全体地図</a>もどうぞ。</p>
+      <h2 class="result-h2">で、どのアプリを使えばいいのか</h2>
+      <p class="result-lead">アプリは何十本もありますが、<b>実際に勧められるのは4本と、番外編が1本</b>です。会員数ランキングではなく、<b>「誰が集まっている場所か」</b>で並べます。</p>
+      <div class="tbl-wrap">
+        <table class="cmp">
+          <thead>
+            <tr><th>アプリ</th><th>集まっている層と目的</th><th>こんな人に</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>ペアーズ</b></td><td>20代〜30代と幅広い。会員数は最多<br><span style="color:#6b7488;">恋人探し〜結婚</span></td><td>迷ったらここ。全員の基準になる1本</td></tr>
+            <tr><td><b>with</b></td><td>20代前半〜中盤が中心。スペックはやや上。規模はペアーズに次ぐ<br><span style="color:#6b7488;">恋人探し〜結婚</span></td><td>若い層を狙いたい人</td></tr>
+            <tr><td><b>Omiai</b></td><td>平均的な層。規模はペアーズ・withより小さめ<br><span style="color:#6b7488;">結婚</span></td><td>結婚を前提に動きたい人</td></tr>
+            <tr><td><b>タップル</b></td><td>10代後半〜20代前半。かなり若い<br><span style="color:#6b7488;">ライトな出会い</span></td><td>若さとルックスで戦える人</td></tr>
+            <tr><td><b>東カレデート</b><br><span style="font-size:.78rem; color:#6b7488;">（番外編）</span></td><td>男女ともハイスペック層<br><span style="color:#6b7488;">ハイスペ同士の出会い</span></td><td>他アプリで結果が出てから</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="app-block">
+        <p class="app-name">ペアーズ</p>
+        <p class="app-role">誰にでも当てはまる、基準の1本</p>
+        <p>会員数が最も多く、年齢層も目的も幅広いアプリです。恋人探しから結婚相手探しまで、どの入口でも成立します。<b>迷ったらまずここ</b>で構いません。母数が大きいぶん、「今の自分にどれくらい反応が返ってくるか」という現在地の測定にも一番向いています。</p>
+      </div>
+
+      <div class="app-block">
+        <p class="app-name">with</p>
+        <p class="app-role">ペアーズより少し上の層、少し若い層</p>
+        <p>男女ともスペックがペアーズより一段上がり、年齢層は<b>20代前半から中盤がメイン</b>です。会員数は<b>ペアーズに次ぐ規模</b>で、恋人探しから結婚相手探しまで幅広い需要があります。ペアーズと並行して使う2本目として、最も無難な選択です。</p>
+      </div>
+
+      <div class="app-block">
+        <p class="app-name">Omiai</p>
+        <p class="app-role">結婚が目的なら、ここ</p>
+        <p>スペックが特別高い人が集まっているわけではなく、<b>平均的な層</b>が中心です。名前のとおり結婚を目的とした男女が多いので、恋人探しには少し不向きかもしれません。会員数はペアーズ・withには及ばず、やや少なめです。<b>結婚前提で動く人以外は、優先度を下げていい</b>1本です。</p>
+      </div>
+
+      <div class="app-block">
+        <p class="app-name">タップル</p>
+        <p class="app-role">若さで戦える人だけの場所</p>
+        <p>メイン層は<b>10代後半から22〜23歳</b>くらいと、かなり若いアプリです。結婚を目的とした需要は少なく、スワイプ型で<b>顔やスペックだけで判断されていく</b>ことが多くなります。年齢が高い方や、ルックスに自信のない方には不向きです。ここで反応がないことを、自分の実力だと勘違いしないでください。</p>
+      </div>
+
+      <div class="app-block">
+        <p class="app-name">東カレデート<span style="font-size:.8rem; color:#6b7488; font-weight:700;">（番外編）</span></p>
+        <p class="app-role">自信がついた人への、次のステージ</p>
+        <p>男女ともにハイスペックなユーザーが多く、そのぶん<b>女性から求められる水準もかなり高くなります</b>。最初に触るアプリではありません。他のアプリである程度出会いに慣れて、自信がついた方に、ぜひ挑戦してほしいアプリです。</p>
+      </div>
+
+      <p class="no-ad" style="margin-top:22px;">※このページに広告リンクはありません。掲載しているアプリとの提携も行っていないため、順位や紹介内容は運営者の判断のみで書いています。</p>
+    </section>
+
+    <!-- ===== 4タイプ別（折りたたみ） ===== -->
+    <details class="fold">
+      <summary>
+        4タイプ診断を受けた人へ：タイプ別のアプリの選び方
+        <small>診断がまだの人は読まなくて大丈夫です</small>
+      </summary>
+      <div class="fold-body">
+        <p style="font-size:.92rem; color:#3d4557;">会員数が多いアプリが、あなたに合うアプリとは限りません。ライバルの男性も多く、埋もれやすくなるからです。大事なのは、<b>自分のつまずき方（タイプ）と、アプリの設計の相性</b>。ここを合わせるだけで、同じ顔・同じプロフィールでも結果が変わります。</p>
+        <p style="font-size:.92rem; color:#3d4557; margin-top:10px;">まだ診断していない人は、先に<a href="diagnosis.html">無料60秒診断</a>で自分のタイプを特定してください。</p>
+
+        <h3>ぐいぐい空回り型 → with</h3>
+        <p>行動力が空回りするタイプは、<b>会話のテンポが穏やかに設計されたアプリ</b>が向いています。スワイプで大量にマッチして大量に即レスする環境は、事故率を上げるだけです。性格診断や共通点からじっくり始まるwithで、1人ずつ丁寧に進めてください。</p>
+
+        <h3>安全運転ビビり型 → ペアーズ</h3>
+        <p>動き出しが重いタイプは、<b>「いいね」以外の軽い接点があるアプリ</b>が向いています。ペアーズはコミュニティ機能で共通点から入れるので、いきなり告白レベルの勇気を要求されません。母数が大きく、1通あたりの重みが下がるのも効きます。</p>
+
+        <h3>自分軸ズレ型 → Omiai</h3>
+        <p>会話が自分の話に寄るタイプは、<b>相手の希望や条件が明確に見えるアプリ</b>が向いています。Omiaiは結婚目的で相手の条件がはっきりしているぶん、自分本位のまま進めない仕組みになっています。写真だけで判断が進むスワイプ特化型は、あなたの強みを消します。</p>
+
+        <h3>ポジティブ勘違い型 → ペアーズ</h3>
+        <p>脈の読み違いが起きるタイプは、<b>反応が数として見える環境</b>が向いています。会員数が多いペアーズは、いいねや既読の温度差が可視化されやすく、脳内補正抜きの現実の反応と向き合う練習になります。曖昧なサインが多い場は、時間を溶かすだけです。</p>
+      </div>
+    </details>
+
+    <!-- ===== 締め ===== -->
+    <section class="result-card">
+      <h2 class="result-h2">アプリ選びより先に、写真です</h2>
+      <p class="result-lead">女性があなたの写真を見る時間は0.5秒です。どのアプリを選んでも、ここが整っていなければ結果は変わりません。公式LINEで配布中の「女性目線チェックリスト」で、先にセルフチェックしてください。</p>
+      <p style="text-align:center; margin:18px 0;"><a href="line-tokuten.html" class="btn-primary" style="display:inline-block;">LINEで特典を受け取る →</a></p>
+      <p class="result-lead" style="margin-bottom:0;">見た目そのものを整えたい人は<a href="mitame.html">モテる見た目の整え方</a>、出会いの場を全体から見直したい人は<a href="deai-guide.html">出会いの場・全体地図</a>もどうぞ。</p>
     </section>
 
   </div>
@@ -76,6 +329,49 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  var ans = { app: null, love: null };
+  var btns = document.querySelectorAll(".q-btn");
+  var hint = document.getElementById("qHint");
+  var reset = document.getElementById("qReset");
+
+  function boxId() { return "box-" + ans.app + "-" + ans.love; }
+
+  function apply() {
+    document.querySelectorAll(".box").forEach(function (b) { b.classList.remove("on"); });
+    if (!ans.app || !ans.love) { reset.classList.remove("on"); return; }
+    var el = document.getElementById(boxId());
+    if (!el) return;
+    el.classList.add("on");
+    hint.innerHTML = "あなたに当てはまるのは、下の1つだけです。<b>他の3つは読まなくて大丈夫です。</b>";
+    reset.classList.add("on");
+    if (window.matchMedia("(max-width:900px)").matches) {
+      setTimeout(function () { el.scrollIntoView({ behavior: "smooth", block: "start" }); }, 80);
+    }
+  }
+
+  btns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var q = b.dataset.q;
+      ans[q] = b.dataset.v;
+      document.querySelectorAll('.q-btn[data-q="' + q + '"]').forEach(function (o) {
+        o.setAttribute("aria-pressed", String(o === b));
+      });
+      apply();
+    });
+  });
+
+  reset.addEventListener("click", function (e) {
+    e.preventDefault();
+    ans = { app: null, love: null };
+    btns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+    hint.innerHTML = "2つ答えると、あなたに当てはまる1つだけが表示されます。<b>残りの3つは読まなくて大丈夫です。</b>";
+    apply();
+    document.getElementById("qCard").scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+})();
+</script>
 <script src="analytics.js?v=20260902b" defer></script>
 </body>
 </html>
