@@ -177,15 +177,15 @@
     <section class="result-card branch-card-accent" style="text-align:center;">
       <span class="branch-tag branch-tag-accent">友だち追加は、ここから</span>
       <h3 style="margin-bottom:16px;">公式LINEに登録する</h3>
-      <a href="#" id="lineAddBtn" class="btn-primary big" data-url="https://line.me/R/ti/p/%40098hktfn" target="_blank" rel="noopener">LINEで友だち追加する →</a>
+      <a href="#" id="lineAddBtn" class="line-add btn-primary big" data-url="https://line.me/R/ti/p/%40098hktfn" target="_blank" rel="noopener">LINEで友だち追加する →</a>
       <p style="margin-top:16px; font-size:.8rem; color:var(--c-muted);">登録は無料。通知はいつでも解除できる。</p>
     </section>
 
     <section class="result-card">
       <h2 class="result-h2">もっと本気で変えたい人へ</h2>
-      <p class="result-lead" style="margin-bottom:0;">写真撮影・ファッションチェック・マッチングアプリのプロフィール添削まで、まとめて相談できる個別相談も受付中。まずは相談内容だけでも確認してみて。</p>
+      <p class="result-lead" style="margin-bottom:0;">写真撮影・ファッションチェック・マッチングアプリのプロフィール添削まで、まとめて相談できる個別相談も受付中。<b>案内は登録後にLINEから送っています。</b>まずは友だち追加して、今の状況を送ってください。</p>
       <div style="text-align:center; margin-top:22px;">
-        <a href="consultation.html" class="btn-outline">個別相談の内容を見る →</a>
+        <a href="#" class="line-add btn-outline" data-url="https://line.me/R/ti/p/%40098hktfn" target="_blank" rel="noopener">LINEで友だち追加する →</a>
       </div>
     </section>
 
@@ -205,9 +205,11 @@
 </footer>
 
 <script>
-  var lineBtn = document.getElementById("lineAddBtn");
-  var lineUrl = lineBtn.getAttribute("data-url");
-  if (lineUrl) { lineBtn.setAttribute("href", lineUrl); }
+  /* data-url を持つLINE追加ボタンすべてに href を差し込む（ページ内に複数設置あり） */
+  Array.prototype.forEach.call(document.querySelectorAll(".line-add[data-url]"), function (btn) {
+    var url = btn.getAttribute("data-url");
+    if (url) { btn.setAttribute("href", url); }
+  });
 
   /* 診断済みの人にだけ、タイプ名と送るキーワードを出す。
      ?type=xxx（result.htmlのリンクが付与）→ localStorage の順で判定する。
