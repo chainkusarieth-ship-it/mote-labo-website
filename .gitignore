@@ -1,1 +1,4 @@
 .DS_Store
+
+# Claudeがデスクトップアプリ経由で置いたファイル（サイトには含めない）
+Claude outputs/
