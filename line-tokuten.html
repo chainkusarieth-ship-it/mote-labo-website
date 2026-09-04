@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LINE登録特典｜恋愛分析【男のモテラボ】AIレン</title>
-<meta name="description" content="公式LINE登録で5つの特典を無料配布中。タイプ別・改善ロードマップ、写真の女性目線チェックリスト、プロフィール文NG辞典、追いLINE防止チェックリスト、初デート質問リスト30。個別相談（写真撮影・プロフィール添削）の案内もLINEから。">
+<meta name="description" content="公式LINE登録で7つの特典を無料配布中。タイプ別・改善ロードマップ、写真の女性目線チェックリスト、プロフィール文NG辞典、追いLINE防止チェックリスト、初デート質問リスト30、一線を越える前の確認リスト、撮影つき個別相談ガイド。個別相談（写真撮影・プロフィール添削）の案内もLINEから。">
 <link rel="stylesheet" href="style.css?v=20260903a">
 <style>
   /* このページ専用（特典一覧・受け取り方）。style.cssには影響しない */
@@ -35,6 +35,34 @@
   .tokuten-note{
     margin-top:18px; font-size:.82rem; color:var(--c-muted);
     text-align:center;
+  }
+  /* 目玉特典（不同意性交防止マニュアル）を1件だけ強調する */
+  .tokuten-item.is-feature{
+    background:#fff5f9;
+    border:2px solid rgba(255,111,165,.55);
+    box-shadow:0 4px 16px rgba(255,111,165,.14);
+  }
+  .tokuten-item.is-feature .tokuten-no{ background:#c4327a; }
+  .tokuten-flag{
+    display:inline-block; font-size:.7rem; font-weight:900; letter-spacing:.06em;
+    color:#fff; background:#c4327a; border-radius:60px;
+    padding:3px 11px; margin-bottom:7px;
+  }
+  /* 見た目改善ページへの導線カード */
+  .mitame-card{
+    background:linear-gradient(140deg,#241a35,#332147);
+    border:1px solid rgba(255,111,165,.4);
+    border-radius:var(--radius-lg); padding:28px 24px; text-align:center;
+    color:var(--c-cream);
+    margin-bottom:24px;
+    box-shadow:var(--shadow-soft);
+  }
+  .mitame-card h3{ font-size:1.05rem; font-weight:900; margin:0 0 8px; color:#fff8f2; }
+  .mitame-card p{ font-size:.85rem; line-height:1.8; color:#d6cee4; margin:0 0 18px; }
+  .mitame-card .tag{
+    display:inline-block; font-size:.72rem; font-weight:900; letter-spacing:.08em;
+    color:#37e8b0; border:1px solid rgba(55,232,176,.5);
+    border-radius:60px; padding:4px 14px; margin-bottom:12px;
   }
   /* flexのwrapで幅に応じて3列⇔1列。狭い画面では自動的に縦積みになる */
   .howto{ display:flex; flex-wrap:wrap; gap:14px; }
@@ -152,6 +180,27 @@
           </div>
         </div>
 
+        <div class="tokuten-item">
+          <div class="tokuten-no">6</div>
+          <div class="tokuten-body">
+            <h3>撮影つき個別相談ガイド</h3>
+            <p>写真撮影・ファッションチェック・プロフィール添削を1日でまとめて行う個別相談の中身を、当日の流れと持ち物、料金まで先に全部公開しています。申し込む前に読んでください。</p>
+            <span class="tokuten-key">「撮影」と送信</span>
+          </div>
+        </div>
+
+        <!-- ▼▼▼ 特典7：不同意性交防止マニュアル。PDFが完成したら、この行と下の閉じコメントを削除して公開する ▼▼▼
+        <div class="tokuten-item is-feature">
+          <div class="tokuten-no">7</div>
+          <div class="tokuten-body">
+            <span class="tokuten-flag">最重要</span>
+            <h3>一線を越える前の確認リスト</h3>
+            <p>「たぶん大丈夫」で進めた結果、人生が終わる人がいます。同意がどこで成立してどこで消えるのかを、法律の条文ではなく現場の会話単位で整理しました。相手を守る話であると同時に、あなた自身を守る話です。</p>
+            <span class="tokuten-key">「一線」と送信</span>
+          </div>
+        </div>
+        ▲▲▲ ここまで ▲▲▲ -->
+
       </div>
 
       <p class="tokuten-note">写真撮影・ファッションチェックなど、個別相談メニューの優先案内もLINEから。</p>
@@ -177,6 +226,13 @@
         </div>
       </div>
       <p class="tokuten-note">全部まとめて見たいときは「特典」と送ってください。一覧が返ってきます。</p>
+    </section>
+
+    <section class="mitame-card">
+      <span class="tag">登録しなくても、今すぐ読める</span>
+      <h3>清潔感ロードマップ（STEP1〜6）</h3>
+      <p>「イケメンじゃないから」は、だいたい言い訳です。女性が見ているのは顔の造形ではなく清潔感で、清潔感は正しい順番で整えれば誰でも作れます。ヒゲ・肌・眉・髪・体型・写真まで、やる順番どおりに並べました。</p>
+      <a href="mitame.html" class="btn-primary big">見た目の整え方を読む →</a>
     </section>
 
     <section class="result-card branch-card-accent" id="add" style="text-align:center;">
