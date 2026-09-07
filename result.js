@@ -105,7 +105,7 @@ function render() {
 
   const tokutenLink = document.getElementById("lineTokutenLink");
   if (tokutenLink) {
-    tokutenLink.setAttribute("href", "line-tokuten.html?type=" + encodeURIComponent(type));
+    tokutenLink.setAttribute("href", "/line-tokuten?type=" + encodeURIComponent(type));
   }
 }
 

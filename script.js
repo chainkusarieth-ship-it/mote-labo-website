@@ -204,7 +204,7 @@ function finish() {
 
   // 結果ページは別タスクで実装予定。type をクエリで渡して遷移。
   setTimeout(function () {
-    window.location.href = "result.html?type=" + encodeURIComponent(type);
+    window.location.href = "/result?type=" + encodeURIComponent(type);
   }, 1600);
 }
 

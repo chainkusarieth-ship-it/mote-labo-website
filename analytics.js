@@ -42,12 +42,12 @@
 
   /* ---------- 計測対象の内部リンク ---------- */
   var INTERNAL = {
-    "mitame.html":       "見た目ページ",
-    "deai-guide.html":   "出会いの場ページ",
-    "apps.html":         "アプリページ",
-    "consultation.html": "個別相談ページ",
-    "diagnosis.html":    "診断ページ",
-    "line-tokuten.html": "LINE特典ページ"
+    "mitame":       "見た目ページ",
+    "deai-guide":   "出会いの場ページ",
+    "apps":         "アプリページ",
+    "consultation": "個別相談ページ",
+    "diagnosis":    "診断ページ",
+    "line-tokuten": "LINE特典ページ"
   };
 
   function classify(a) {
@@ -87,7 +87,7 @@
     send(hit.event, {
       link_id:   hit.label,
       link_text: (a.textContent || "").replace(/\s+/g, " ").trim().slice(0, 80),
-      from_page: location.pathname.split("/").pop() || "index.html"
+      from_page: location.pathname.split("/").pop() || "index"
     });
   }, true);
 
