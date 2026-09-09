@@ -604,3 +604,25 @@ select.form-input{ cursor:pointer; }
   .char-card-img{ width:150px; height:220px; }
   .char-card:not(.yuu) .char-card-img{ width:135px; height:198px; }
 }
+
+/* ============================================
+   LINE登録特典バナー（7大特典）
+   ============================================ */
+.tokuten-banner{
+  display:block;
+  width:100%;
+  max-width:640px;
+  margin:0 auto 20px;
+  border-radius:14px;
+  overflow:hidden;
+  line-height:0;
+  border:1px solid rgba(255,111,165,.45);
+  box-shadow:0 10px 30px rgba(255,111,165,.20);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.tokuten-banner img{ width:100%; height:auto; display:block; }
+.tokuten-banner:hover{ transform:translateY(-2px); box-shadow:0 14px 36px rgba(255,111,165,.32); }
+.line-cta .tokuten-banner{ margin-bottom:20px; }
+@media (max-width:600px){
+  .tokuten-banner{ margin-bottom:16px; border-radius:12px; }
+}
