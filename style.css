@@ -198,6 +198,65 @@ button{ font-family:inherit; cursor:pointer; border:none; background:none; }
 .video-note{ text-align:center; color:var(--c-muted); font-size:.85rem; margin-top:20px; }
 .video-cta{ text-align:center; margin-top:18px; }
 
+/* ---------- ヒーロー内の運営者動画 ---------- */
+.hero-video{
+  max-width:720px; margin:0 auto 40px;
+  text-align:left;
+}
+.hero-video-head{ text-align:center; margin-bottom:22px; }
+.hero-video-head small{
+  display:block; font-size:.72rem; color:var(--c-emerald);
+  letter-spacing:.2em; margin-bottom:10px; font-weight:800;
+}
+.hero-video-head h2{
+  font-size:1.35rem; font-weight:900; line-height:1.5; margin:0 0 10px;
+}
+.hero-video-lead{ color:var(--c-muted2); font-size:.92rem; line-height:1.8; margin:0 0 12px; }
+.video-meta{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:.76rem; color:var(--c-muted);
+  border:1px solid rgba(255,255,255,.14); border-radius:999px;
+  padding:5px 14px; margin:0;
+}
+.video-dur{ color:var(--c-pink-light); font-weight:700; }
+.video-sep{ opacity:.4; }
+
+.video-chapters{
+  margin-top:16px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--radius);
+  padding:2px 18px;
+}
+.video-chapters summary{
+  cursor:pointer; padding:14px 0;
+  font-size:.86rem; font-weight:700; color:var(--c-muted2);
+  list-style:none;
+}
+.video-chapters summary::-webkit-details-marker{ display:none; }
+.video-chapters summary::before{ content:"＋ "; color:var(--c-pink); }
+.video-chapters[open] summary::before{ content:"− "; }
+.video-chapters ul{ list-style:none; margin:0 0 14px; padding:0; }
+.video-chapters li{
+  display:flex; align-items:baseline; gap:12px;
+  padding:9px 0; border-top:1px solid rgba(255,255,255,.07);
+  font-size:.88rem; line-height:1.6;
+}
+.video-chapters li button{
+  flex:none; min-width:3.4em;
+  font-family:inherit; font-size:.82rem; font-weight:700;
+  color:var(--c-pink); background:none; border:none; padding:0;
+  cursor:pointer; text-align:left;
+}
+.video-chapters li button:hover{ text-decoration:underline; }
+.video-chapters li span{ color:var(--c-muted2); }
+
+@media (max-width:520px){
+  .hero-video-head h2{ font-size:1.12rem; }
+  .hero-video-lead{ font-size:.86rem; }
+  .video-chapters li{ font-size:.82rem; gap:10px; }
+}
+
 .hero-avatars{
   display:flex; justify-content:center; gap:48px;
   margin:44px 0 8px; flex-wrap:wrap;

@@ -6,7 +6,7 @@
 <title>恋愛分析【男のモテラボ】AIレン｜その非モテ、60秒でズバッと診断</title>
 <link rel="canonical" href="https://airenmote.com/">
 <meta name="description" content="心理学・行動科学ベースで「なぜモテないか」を言語化。AIレンが辛口で診断・改善アクションまでナビゲート。まずは60秒の無料診断から。">
-<link rel="stylesheet" href="style.css?v=20260915a">
+<link rel="stylesheet" href="style.css?v=20260916a">
 </head>
 <body>
 
@@ -14,7 +14,7 @@
   <div class="container">
     <a href="/" class="logo">男の<span>モテラボ</span></a>
     <nav class="nav-links">
-      <a href="#video">解説動画</a>
+      <a href="#video">運営者の話</a>
       <a href="#aruaru">あるある</a>
       <a href="#character">レン・ユウ</a>
       <a href="#sns">SNS</a>
@@ -34,12 +34,41 @@
     <h1>モテない理由、<span class="accent">女性は全員気づいてる。</span><br>気づいてないの、<span class="em">あなただけ</span>なんだけど。</h1>
     <p class="sub">慰めも励ましもナシ。心理学と行動データで、あなたの「モテない原因」を60秒で特定。<br>タイプ別の処方箋まで出すから、覚悟だけしておいて。</p>
 
-    <p class="hero-fork-label">さあ、どっちから暴かれたい？</p>
+    <div class="hero-video" id="video">
+      <div class="hero-video-head">
+        <small>FROM THE FOUNDER</small>
+        <h2>このサイトを作った男も元非モテ。</h2>
+        <p class="hero-video-lead">ショート動画でレンに斬られている「ユウ」は、20代の頃の運営者がモデル。AIレンの辛口は机上の空論じゃない。運営者が20年かけて踏んだ地雷が、そのまま元になってる。</p>
+        <p class="video-meta"><span class="video-dur">10分31秒</span><span class="video-sep">/</span>顔出し・実話</p>
+      </div>
+
+      <div class="video-embed">
+        <video id="founderVideo" controls playsinline preload="none" poster="images/video-poster.jpg?v=20260915" title="運営者が語る、男のモテラボを作った理由">
+          <source src="https://videos.airenmote.com/web-intro-720p.mp4" type="video/mp4">
+          お使いのブラウザは動画の再生に対応していません。
+        </video>
+      </div>
+
+      <details class="video-chapters">
+        <summary>チャプター（見たいところから再生できます）</summary>
+        <ul id="chapterList">
+          <li><button type="button" data-t="0">0:00</button><span>ごあいさつ／この動画で話すこと</span></li>
+          <li><button type="button" data-t="140">2:20</button><span>① 私の敗北の歴史</span></li>
+          <li><button type="button" data-t="254">4:14</button><span>② 戦歴と、今の実際の成果</span></li>
+          <li><button type="button" data-t="408">6:48</button><span>③ 既存の恋愛サロン・学習コンテンツとの違い</span></li>
+          <li><button type="button" data-t="568">9:28</button><span>モテラボとAIレンが目指すもの</span></li>
+          <li><button type="button" data-t="592">9:52</button><span>まずは無料60秒診断から</span></li>
+        </ul>
+      </details>
+
+      <p class="video-note">他人事だと思えなかったなら、診断はその答え合わせになる。</p>
+    </div>
+
+    <p class="hero-fork-label">動画は後でもいい。先に結果だけ知りたいなら。</p>
     <div class="hero-cta">
       <a href="/diagnosis" class="btn-primary big">60秒で自分の正体を知る →</a>
-      <a href="#video" class="btn-outline big">先にレンの斬れ味を確かめる</a>
     </div>
-    <p class="hero-note">診断：全8問・選ぶだけ・登録不要 ／ 動画：まず世界観から入りたい慎重派向け</p>
+    <p class="hero-note">全8問・選ぶだけ・登録不要</p>
 
     <div class="hero-avatars">
       <div class="avatar-card">
@@ -52,24 +81,6 @@
         <div class="avatar-name">ユウ</div>
         <div class="avatar-role">視聴者代表・非モテ目線</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- 解説動画 -->
-<section class="section section-alt" id="video">
-  <div class="container narrow">
-    <div class="section-title"><small>WATCH FIRST</small>レンの斬れ味は、1本で分かる。</div>
-    <p class="section-lead">診断の前に人柱を見たい人へ。ユウが斬られる姿に、心当たりしかないはずだけど。</p>
-    <div class="video-embed">
-      <video controls playsinline preload="none" poster="images/video-poster.jpg?v=20260915" title="AIレン解説動画">
-        <source src="https://videos.airenmote.com/web-intro-720p.mp4" type="video/mp4">
-        お使いのブラウザは動画の再生に対応していません。
-      </video>
-    </div>
-    <p class="video-note">他人事だと笑えたなら大丈夫。笑えなかったら、診断で確かめて。</p>
-    <div class="video-cta">
-      <a href="/diagnosis" class="btn-outline">笑えなかったので診断してみる →</a>
     </div>
   </div>
 </section>
@@ -261,6 +272,23 @@
     var url = el.getAttribute('data-url');
     if(url){ el.setAttribute('href', url); }
   });
+
+  // チャプター：クリックでその時間から再生
+  (function(){
+    var v = document.getElementById('founderVideo');
+    var list = document.getElementById('chapterList');
+    if(!v || !list) return;
+    list.addEventListener('click', function(e){
+      var b = e.target.closest('button[data-t]');
+      if(!b) return;
+      var t = parseFloat(b.getAttribute('data-t'));
+      if(v.readyState === 0){ v.load(); }
+      var seek = function(){ v.currentTime = t; v.play().catch(function(){}); };
+      if(v.readyState >= 1){ seek(); }
+      else { v.addEventListener('loadedmetadata', seek, { once:true }); }
+      v.scrollIntoView({ behavior:'smooth', block:'center' });
+    });
+  })();
 </script>
 
 <script src="analytics.js?v=20260902b" defer></script>
