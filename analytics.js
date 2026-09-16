@@ -98,4 +98,79 @@
       window.gtag("set", "user_properties", { shindan_type: t });
     }
   } catch (err) { /* URLSearchParams非対応ブラウザは無視 */ }
+
+  /* ---------- 動画の視聴計測 ----------
+     video_start    再生開始
+     video_progress 25 / 50 / 75% 到達
+     video_complete 最後まで再生
+     video_quit     途中で離脱（どこまで見たかを記録）
+     ※ percent / video_pos / video_watched / video_seeked は
+        GA4の「カスタム定義」に登録しないとレポートに出ません
+  ------------------------------------------------------------ */
+  function mergeParams(extra, base) {
+    var out = {}, k;
+    for (k in base)  { if (base.hasOwnProperty(k))  { out[k] = base[k]; } }
+    for (k in extra) { if (extra.hasOwnProperty(k)) { out[k] = extra[k]; } }
+    return out;
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll("video"), function (v) {
+    var videoId  = v.id || "video";
+    var marks    = { 25: false, 50: false, 75: false };
+    var started  = false;
+    var finished = false;
+    var quitSent = false;
+    var seeked   = false;
+    var watched  = 0;   // 実際に再生された秒数（早送り分は含めない）
+    var lastTime = 0;
+
+    function base() {
+      return {
+        video_id:      videoId,
+        video_pos:     Math.round(v.currentTime || 0),
+        video_watched: Math.round(watched),
+        video_seeked:  seeked,
+        from_page:     location.pathname.split("/").pop() || "index"
+      };
+    }
+
+    v.addEventListener("play", function () {
+      lastTime = v.currentTime;
+      if (!started) { started = true; send("video_start", base()); }
+    });
+
+    v.addEventListener("seeking", function () { seeked = true; });
+
+    v.addEventListener("timeupdate", function () {
+      var now  = v.currentTime;
+      var diff = now - lastTime;
+      if (diff > 0 && diff < 1.5) { watched += diff; }  // シーク分は加算しない
+      lastTime = now;
+
+      if (!v.duration || !isFinite(v.duration)) { return; }
+      var percent = (now / v.duration) * 100;
+      [25, 50, 75].forEach(function (m) {
+        if (!marks[m] && percent >= m) {
+          marks[m] = true;
+          send("video_progress", mergeParams({ percent: m }, base()));
+        }
+      });
+    });
+
+    v.addEventListener("ended", function () {
+      finished = true;
+      send("video_complete", base());
+    });
+
+    function sendQuit() {
+      if (!started || finished || quitSent) { return; }
+      quitSent = true;
+      send("video_quit", base());
+    }
+
+    window.addEventListener("pagehide", sendQuit);
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "hidden") { sendQuit(); }
+    });
+  });
 })();
