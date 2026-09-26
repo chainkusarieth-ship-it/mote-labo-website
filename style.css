@@ -687,3 +687,17 @@ select.form-input{ cursor:pointer; }
 @media (max-width:600px){
   .tokuten-banner{ margin-bottom:16px; border-radius:12px; }
 }
+
+/* ---------- 新ロゴ（2026-09-26） ---------- */
+.logo-img{ display:block; line-height:0; flex-shrink:0; }
+.logo-img img{ height:46px; width:auto; }
+.hero--logo{ padding-top:28px; }
+.hero-airen{ margin:0 auto 12px; width:min(340px, 78%); }
+.result-header .logo-img img{ height:40px; }
+.hero-airen img{ width:100%; height:auto; filter:drop-shadow(0 6px 22px rgba(255,111,165,.25)); }
+@media (max-width:560px){
+  .logo-img{ width:auto; }
+  .logo-img img{ height:36px; }
+  .result-header .logo-img img{ height:32px; }
+  .hero-airen{ width:min(250px, 70%); margin-bottom:10px; }
+}
