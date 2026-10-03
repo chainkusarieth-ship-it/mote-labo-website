@@ -12,6 +12,24 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#191225">
+<style>
+/* ===== メニューの「押せます」ヒント（2026-10-03）===== */
+.nav-links{ position:relative; }
+/* 指アイコンを末尾に足すため、LINE特典の色指定を :last-of-type でも当てる（style.css の :last-child と同じ値） */
+.nav-links a:last-of-type{ background:rgba(255,111,165,.85); border:1px solid var(--c-pink); color:#fff; }
+.nav-links a:last-of-type:hover{ background:rgba(255,111,165,.35); color:#fff; }
+.nav-links a{ position:relative; overflow:hidden; }
+.nav-links a.nav-hint{ animation:navPop .55s ease-out; box-shadow:0 0 0 2px rgba(255,255,255,.55), 0 0 16px rgba(255,111,165,.75); color:#fff; }
+.nav-links a.nav-hint::after{ content:""; position:absolute; top:0; bottom:0; left:-60%; width:50%; background:linear-gradient(110deg,transparent,rgba(255,255,255,.6),transparent); animation:navShine .55s ease-out forwards; pointer-events:none; }
+@keyframes navPop{ 0%{ transform:scale(1); } 35%{ transform:scale(1.09); } 100%{ transform:scale(1); } }
+@keyframes navShine{ to{ left:120%; } }
+.nav-finger{ position:absolute; z-index:60; left:0; top:0; font-size:22px; line-height:1; pointer-events:none; opacity:0; filter:drop-shadow(0 2px 4px rgba(0,0,0,.55)); transition:left .32s ease, top .32s ease, opacity .3s; }
+.nav-finger.on{ opacity:1; }
+.nav-finger.tap{ animation:navTap .32s ease-out; }
+@keyframes navTap{ 0%{ transform:translateY(0); } 45%{ transform:translateY(-6px) scale(.9); } 100%{ transform:translateY(0); } }
+@media (max-width:560px){ .nav-finger{ font-size:18px; } }
+@media (prefers-reduced-motion: reduce){ .nav-finger{ display:none; } .nav-links a.nav-hint{ animation:none; } .nav-links a.nav-hint::after{ display:none; } }
+</style>
 </head>
 <body>
 
@@ -308,6 +326,35 @@
   })();
 </script>
 
+<script>
+/* メニューが押せることを知らせるヒント：指が順番にタップ＆ボタンが光る（2周で停止・操作したら即停止・1セッション1回） */
+(function(){
+  try{ if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return; }catch(e){}
+  try{ if(sessionStorage.getItem('navHintShown')) return; }catch(e){}
+  var nav=document.querySelector('.nav-links'); if(!nav) return;
+  var links=[].slice.call(nav.querySelectorAll('a')); if(!links.length) return;
+  var finger=document.createElement('span'); finger.className='nav-finger'; finger.setAttribute('aria-hidden','true'); finger.textContent='👆';
+  nav.appendChild(finger);
+  var i=0, cycles=2, timer=null, stopped=false;
+  function clear(){ links.forEach(function(a){ a.classList.remove('nav-hint'); }); }
+  function stop(){ if(stopped) return; stopped=true; clearTimeout(timer); clear(); finger.classList.remove('on');
+    setTimeout(function(){ if(finger.parentNode) finger.parentNode.removeChild(finger); },400);
+    ['scroll','pointerdown','keydown','touchstart'].forEach(function(t){ window.removeEventListener(t,onUser,true); }); }
+  function onUser(e){ if(e.type==='scroll' && window.scrollY<40) return; stop(); }
+  function step(){
+    if(stopped) return;
+    if(i>=links.length*cycles){ stop(); return; }
+    var a=links[i%links.length]; clear();
+    finger.style.left=(a.offsetLeft+a.offsetWidth/2-9)+'px';
+    finger.style.top=(a.offsetTop+a.offsetHeight-8)+'px';
+    finger.classList.add('on');
+    setTimeout(function(){ if(stopped) return; void a.offsetWidth; a.classList.add('nav-hint'); finger.classList.remove('tap'); void finger.offsetWidth; finger.classList.add('tap'); },320);
+    i++; timer=setTimeout(step,700);
+  }
+  ['scroll','pointerdown','keydown','touchstart'].forEach(function(t){ window.addEventListener(t,onUser,{capture:true,passive:true}); });
+  timer=setTimeout(function(){ try{ sessionStorage.setItem('navHintShown','1'); }catch(e){} step(); },1200);
+})();
+</script>
 <script src="analytics.js?v=20260916" defer></script>
 </body>
 </html>
